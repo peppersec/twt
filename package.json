@@ -14,6 +14,7 @@
     "test": "truffle test",
     "test:stacktrace": "yarn test --stacktrace",
     "lint": "eslint --ext .js --ignore-path .gitignore .",
+    "lint:fix": "eslint --ext .js --ignore-path .gitignore . --fix",
     "deploy:mainnet": "truffle migrate --network mainnet",
     "deploy:kovan": "truffle migrate --network kovan",
     "deploy:dev": "truffle migrate --skip-dry-run --network test",

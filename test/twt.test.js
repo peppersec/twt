@@ -13,12 +13,6 @@ contract('TrustWalletTokenMock', (accounts) => {
   const owner = accounts[0]
   const ownerPrivateKey = '0xc87509a1c067bbde78beb793e6fa76530b6382a4c0241e5e4a9ec0a0f44dc0d3'
   const spender = accounts[1]
-  // eslint-disable-next-line no-unused-vars
-  const spenderPrivateKey = '0xae6ae8e5ccbfb04590405997ee2d52d2b330726137b875053c36d94e974d162f'
-  // eslint-disable-next-line no-unused-vars
-  const recipient = accounts[2]
-  // eslint-disable-next-line no-unused-vars
-  const recipientPrivateKey = '0x0dbbe8e4ae425a6d2687f1a7e3ba17bc98c673636790f1b8ad91193c05875ef1'
   const value = toBN(10 ** 18)
   let domain
   let chainId
@@ -151,9 +145,24 @@ contract('TrustWalletTokenMock', (accounts) => {
     })
   })
 
+  describe('metadata', () => {
+    it('has given name', async () => {
+      const name = await twt.name()
+      name.should.be.equal('Trust Wallet')
+    })
+    it('has given symbol', async () => {
+      const symbol = await twt.symbol()
+      symbol.should.be.equal('TWT')
+    })
+    it('has given decimals', async () => {
+      const decimals = await twt.decimals()
+      decimals.should.be.eq.BN(toBN(18))
+    })
+  })
+
   afterEach(async () => {
     await revertSnapshot(snapshotId.result)
     // eslint-disable-next-line require-atomic-updates
     snapshotId = await takeSnapshot()
-  })
+  })  
 })

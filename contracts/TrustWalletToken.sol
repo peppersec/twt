@@ -95,7 +95,6 @@ contract TrustWalletToken is ERC20("Trust Wallet", "TWT"), ERC20Burnable, ERC20P
         _moveDelegates(currentDelegate, delegatee, delegatorBalance);
     }
 
-
     /**
      * @notice Determine the prior number of votes for an account as of a block number
      * @dev Block number must be a finalized block or else this function will revert to prevent misinformation.
@@ -137,7 +136,7 @@ contract TrustWalletToken is ERC20("Trust Wallet", "TWT"), ERC20Burnable, ERC20P
         return checkpoints[account][lower].votes;
     }
 
-        /**
+    /**
      * @notice Gets the current votes balance for `account`
      * @param account The address to get votes balance
      * @return The number of current votes for `account`
@@ -154,8 +153,6 @@ contract TrustWalletToken is ERC20("Trust Wallet", "TWT"), ERC20Burnable, ERC20P
     function delegate(address delegatee) public {
         return _delegate(msg.sender, delegatee);
     }
-
-
 
     /// @dev Method to claim junk and accidentally sent tokens
     function rescueTokens(
