@@ -148,17 +148,17 @@ contract('TrustWalletTokenMock', (accounts) => {
   describe('metadata', () => {
     it('has given name', async () => {
       const name = await twt.name()
-      name.should.be.equal("Trust Wallet")
-    });
+      name.should.be.equal('Trust Wallet')
+    })
     it('has given symbol', async () => {
       const symbol = await twt.symbol()
-      symbol.should.be.equal("TWT")
-    });
+      symbol.should.be.equal('TWT')
+    })
     it('has given decimals', async () => {
       const decimals = await twt.decimals()
       decimals.should.be.eq.BN(toBN(18))
-    });
-  });
+    })
+  })
 
   afterEach(async () => {
     await revertSnapshot(snapshotId.result)
